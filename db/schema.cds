@@ -5,6 +5,9 @@ using {
 } from '@sap/cds/common';
 
 
+namespace trip;
+
+
 entity Status : cuid, managed {
     name : String(50);
 }
