@@ -52,24 +52,30 @@ entity Airports : managed {
         city    : String(50);
 }
 
+
+entity FlightRoutes : cuid {
+    departureAirport   : Association to one Airports @mandatory;
+    destinationAirport : Association to one Airports @mandatory;
+}
+
 entity FlightInformations : cuid, managed {
-    departureDateTime    : DateTime default $now       @mandatory  @assert.range : [
+    departureDateTime    : DateTime default $now           @mandatory  @assert.range : [
         '$now',
         '$self.destinationDateTime'
     ];
 
-    destinationDateTime  : DateTime                    @mandatory  @assert.format: ['$self.departureDateTime'];
+    destinationDateTime  : DateTime                        @mandatory  @assert.format: ['$self.departureDateTime'];
 
-    returnFlightDateTime : DateTime                    @mandatory  @assert.format: ['$self.destinationDateTime'];
+    returnFlightDateTime : DateTime                        @mandatory  @assert.format: ['$self.destinationDateTime'];
 
-    airline              : Association to one Airlines @mandatory;
+    airline              : Association to one Airlines     @mandatory;
 
     @assert.format: '[0-9A-Z]{6}'
-    flightNumber         : String(6)                   @mandatory;
+    flightNumber         : String(6)                       @mandatory;
 
-    returnFlightAirport  : Association to one Airports @mandatory;
-    departureAirport     : Association to one Airports @mandatory;
-    destinationAirport   : Association to one Airports @mandatory;
+    returnFlightAirport  : Association to one Airports     @mandatory;
+
+    flightRoute          : Composition of one FlightRoutes @mandatory;
 }
 
 entity BusinessTrips : cuid, managed {
