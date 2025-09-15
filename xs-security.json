@@ -1,0 +1,44 @@
+{
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.admin",
+      "description": "Full access to all data and ressources as well as create, edit and delete of metadata and normal data"
+    },
+    {
+      "name": "$XSAPPNAME.worker",
+      "description": "Only create and view all trips. Edit his own trips if not accepted by others. Add comment and see status of trip"
+    },
+    {
+      "name": "$XSAPPNAME.backoffice-worker",
+      "description": "Full access on trip data. Can edit, remove, and see trips, can add flight and hotel booking codes. Kann add comments to all trips. Can change the status of a trip"
+    }
+  ],
+  "attributes": [],
+  "role-templates": [
+    {
+      "name": "admin",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.admin"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "worker",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.worker"
+      ],
+      "attribute-references": []
+    },
+    {
+      "name": "backoffice-worker",
+      "description": "generated",
+      "scope-references": [
+        "$XSAPPNAME.backoffice-worker"
+      ],
+      "attribute-references": []
+    }
+  ],
+  "authorities-inheritance": false
+}
