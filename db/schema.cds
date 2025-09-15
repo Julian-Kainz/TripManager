@@ -30,6 +30,17 @@ entity TransportTypes : cuid {
 }
 
 
+entity Attachments : cuid {
+
+    fileName     : String;
+
+    mimeType     : String      @Corse.IsMediaType;
+    fileContent  : LargeBinary @Corse.MediaType: mimeType;
+
+    businessTrip : Association to one BusinessTrips;
+}
+
+
 entity Airports {
         @assert.format: '[A-Z]{3}'
     key IATA    : String(3);
@@ -80,4 +91,7 @@ entity BusinessTrips : cuid {
     flightBookingCode     : Composition of one BookingCodes;
 
     flightInformation     : Composition of one FlightInformations;
+
+    attachments           : Composition of many Attachments
+                                on attachments.businessTrip = $self;
 }
