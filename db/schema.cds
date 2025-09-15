@@ -5,7 +5,7 @@ using {
 } from '@sap/cds/common';
 
 
-entity Status : cuid {
+entity Status : cuid, managed {
     name : String(50);
 }
 
@@ -14,23 +14,23 @@ entity Comments : cuid, managed {
     businessTrip : Association to one BusinessTrips;
 }
 
-entity BookingCodes : cuid {
+entity BookingCodes : cuid, managed {
     @assert.format: '[A-Z0-9]{12}'
     code : String(12);
 }
 
-entity Airlines {
+entity Airlines : managed {
         @assert.format: '[A-Z0-9]{2}'
     key code : String(2);
 }
 
 
-entity TransportTypes : cuid {
+entity TransportTypes : cuid, managed {
     type : String(50);
 }
 
 
-entity Attachments : cuid {
+entity Attachments : cuid, managed {
 
     fileName     : String;
 
@@ -41,7 +41,7 @@ entity Attachments : cuid {
 }
 
 
-entity Airports {
+entity Airports : managed {
         @assert.format: '[A-Z]{3}'
     key IATA    : String(3);
         name    : String(50);
@@ -49,7 +49,7 @@ entity Airports {
         city    : String(50);
 }
 
-entity FlightInformations : cuid {
+entity FlightInformations : cuid, managed {
     departureDateTime    : DateTime default $now       @mandatory  @assert.range : [
         '$now',
         '$self.destinationDateTime'
@@ -69,7 +69,7 @@ entity FlightInformations : cuid {
     destinationAirport   : Association to one Airports @mandatory;
 }
 
-entity BusinessTrips : cuid {
+entity BusinessTrips : cuid, managed {
     startDate             : Date                              @mandatory  @assert.range: [
         '$now',
         '$self.endDate'
