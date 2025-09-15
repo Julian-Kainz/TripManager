@@ -6,20 +6,45 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@cap-js/postgres": "^1",
     "@sap/cds": "^8",
-    "express": "^4",
-    "@sap/xssec": "^4"
+    "@sap/xssec": "^4",
+    "axios": "^1.12.2",
+    "express": "^4"
   },
   "devDependencies": {
+    "@cap-js/cds-types": "^0.10.0",
     "@cap-js/sqlite": "^1",
-    "@cap-js/cds-types": "^0.10.0"
+    "@sap/cds-dk": "^8"
   },
   "scripts": {
     "start": "cds-serve"
   },
   "cds": {
     "requires": {
-      "auth": "xsuaa"
+      "auth": {
+        "kind": "mocked",
+        "users": {
+          "testWorker": {
+            "password": "testWorker",
+            "roles": [
+              "worker"
+            ]
+          },
+          "testBackofficeWorker": {
+            "password": "testBackofficeWorker",
+            "roles": [
+              "backoffice-worker"
+            ]
+          },
+          "testAdmin": {
+            "password": "testAdmin",
+            "roles": [
+              "admin"
+            ]
+          }
+        }
+      }
     }
   }
 }
