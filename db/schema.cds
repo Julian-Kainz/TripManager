@@ -75,7 +75,7 @@ entity FlightInformations : cuid, managed {
 
     returnFlightAirport  : Association to one Airports     @mandatory;
 
-    flightRoute          : Composition of one FlightRoutes @mandatory;
+    flightRoute          : Association to one FlightRoutes @mandatory;
 
     trip                 : Association to one BusinessTrips;
 
@@ -102,7 +102,8 @@ entity BusinessTrips : cuid, managed {
 
     hotelBookingCode      : Association to one BookingCodes;
 
-    flightInformation     : Composition of one FlightInformations;
+    flightInformation     : Composition of one FlightInformations
+                                on flightInformation.trip = $self;
 
     attachments           : Composition of many Attachments
                                 on attachments.businessTrip = $self;
