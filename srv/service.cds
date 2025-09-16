@@ -5,7 +5,13 @@ service TripManagerService @(path: '/trip') {
 
     entity Attachments        as projection on trip.Attachments;
 
-    entity BusinessTrips      as projection on trip.BusinessTrips;
+    entity BusinessTrips      as
+        projection on trip.BusinessTrips {
+            *,
+            status.name        as statusName,
+            transportType.type as transportBy
+        };
+
     entity Comments           as projection on trip.Comments;
     entity FlightInformations as projection on trip.FlightInformations;
 
