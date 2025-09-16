@@ -1,6 +1,5 @@
 using {
     cuid,
-    Country,
     managed
 } from '@sap/cds/common';
 
@@ -25,6 +24,7 @@ entity BookingCodes : cuid, managed {
 entity Airlines : managed {
         @assert.format: '[A-Z0-9]{2}'
     key code : String(2);
+        name : String(100);
 }
 
 
@@ -48,7 +48,7 @@ entity Airports : managed {
         @assert.format: '[A-Z]{3}'
     key IATA    : String(3);
         name    : String(50);
-        country : Country;
+        country : String(50);
         city    : String(50);
 }
 
@@ -76,6 +76,10 @@ entity FlightInformations : cuid, managed {
     returnFlightAirport  : Association to one Airports     @mandatory;
 
     flightRoute          : Composition of one FlightRoutes @mandatory;
+
+    trip                 : Association to one BusinessTrips;
+
+    flightBookingCode    : Association to one BookingCodes;
 }
 
 entity BusinessTrips : cuid, managed {
@@ -96,8 +100,7 @@ entity BusinessTrips : cuid, managed {
     comments              : Composition of many Comments
                                 on comments.businessTrip = $self;
 
-    hotelBookingCode      : Composition of one BookingCodes;
-    flightBookingCode     : Composition of one BookingCodes;
+    hotelBookingCode      : Association to one BookingCodes;
 
     flightInformation     : Composition of one FlightInformations;
 
