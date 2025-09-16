@@ -8,7 +8,7 @@ namespace trip;
 
 
 entity Status : cuid, managed {
-    name : String(50);
+    name : localized String(50);
 }
 
 entity Comments : cuid, managed {
@@ -29,7 +29,7 @@ entity Airlines : managed {
 
 
 entity TransportTypes : cuid, managed {
-    type : String(50);
+    type : localized String(50);
 }
 
 

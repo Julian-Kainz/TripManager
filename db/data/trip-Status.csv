@@ -1,7 +1,7 @@
 ID,name,createdAt,createdBy,modifiedAt,modifiedBy
 1,New,2025-01-01T00:00:00Z,system,,,
 2,Ready,2025-01-01T00:00:00Z,system,,,
-3,InProgress,2025-01-01T00:00:00Z,system,,,
+3,In Progress,2025-01-01T00:00:00Z,system,,,
 4,Booked,2025-01-01T00:00:00Z,system,,,
 5,Finished,2025-01-01T00:00:00Z,system,,,
-6,Canceled,2025-01-01T00:00:00Z,system,,,
+6,Cancelled,2025-01-01T00:00:00Z,system,,,
