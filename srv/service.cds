@@ -14,7 +14,6 @@ service TripManagerService @(path: '/trip') {
 
     entity Comments           as projection on trip.Comments;
     entity FlightInformations as projection on trip.FlightInformations;
-
 }
 
 service ManagementService @(path: '/managment') {

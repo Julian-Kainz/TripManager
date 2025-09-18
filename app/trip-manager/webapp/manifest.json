@@ -49,7 +49,8 @@
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
-        "sap.fe.templates": {}
+        "sap.fe.templates": {},
+        "sap.fe.core": {}
       }
     },
     "contentDensities": {
@@ -89,9 +90,9 @@
           "target": "BusinessTripsList"
         },
         {
-          "pattern": "BusinessTrips/{ID}:?query:",
-          "name": "BusinessTripsObjectPage",
-          "target": "BusinessTripsObjectPage"
+          "name": "BusinessTripObjectPage",
+          "pattern": "BusinessTrips({BusinessTripsKey}):?query:",
+          "target": "BusinessTripObjectPage"
         }
       ],
       "targets": {
@@ -106,7 +107,7 @@
               "navigation": {
                 "BusinessTrips": {
                   "detail": {
-                    "route": "BusinessTripsObjectPage"
+                    "route": "BusinessTripObjectPage"
                   }
                 }
               },
@@ -116,18 +117,20 @@
                     "type": "ResponsiveTable"
                   }
                 }
-              }
+              },
+              "hideFilterBar": false
             }
           }
         },
-        "BusinessTripsObjectPage": {
+        "BusinessTripObjectPage": {
           "type": "Component",
-          "id": "BusinessTripsObjectPage",
-          "name": "sap.fe.templates.ObjectPage",
+          "id": "BusinessTripObjectPage",
+          "name": "sap.fe.core.fpm",
           "options": {
             "settings": {
-              "editableHeaderContent": false,
-              "contextPath": "/BusinessTrips"
+              "navigation": {},
+              "contextPath": "/BusinessTrips",
+              "viewName": "trip.tripmanager.ext.view.ObjectPage"
             }
           }
         }
