@@ -6,6 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@cap-js/cds-test": "^0.4.0",
     "@cap-js/postgres": "^1",
     "@sap/cds": "^8",
     "@sap/xssec": "^4",
@@ -18,7 +19,9 @@
     "@sap/cds-dk": "^8"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "test": "npx jest tests/test.js",
+    "watch-trip-manager": "cds watch --open trip-manager/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {
@@ -46,5 +49,8 @@
         }
       }
     }
-  }
+  },
+  "sapux": [
+    "app/trip-manager"
+  ]
 }

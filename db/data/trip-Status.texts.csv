@@ -1,0 +1,13 @@
+ID,locale,name
+1,de,Neu
+2,de,Bereit
+3,de,In Bearbeitung
+4,de,Gebucht
+5,de,Abgeschlossen
+6,de,Storniert
+1,en,New
+2,en,Ready
+3,en,In Progress
+4,en,Booked
+5,en,Finished
+6,en,Cancelled
