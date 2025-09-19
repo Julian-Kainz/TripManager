@@ -56,6 +56,9 @@ entity Airports : managed {
 entity FlightRoutes : cuid {
     departureAirport   : Association to one Airports @mandatory;
     destinationAirport : Association to one Airports @mandatory;
+
+    @assert.format: '[0-9]{1,4}'
+    flightNumber       : String(4)                   @mandatory;
 }
 
 entity FlightInformations : cuid, managed {
@@ -69,9 +72,6 @@ entity FlightInformations : cuid, managed {
     returnFlightDateTime : DateTime                        @mandatory  @assert.format: ['$self.destinationDateTime'];
 
     airline              : Association to one Airlines     @mandatory;
-
-    @assert.format: '[0-9A-Z]{6}'
-    flightNumber         : String(6)                       @mandatory;
 
     returnFlightAirport  : Association to one Airports     @mandatory;
 

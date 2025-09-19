@@ -1,7 +1,224 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:macros="sap.fe.macros" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="at.clouddna.tripmanager.ext.view.BusinessTrip">
-    <Page id="BusinessTrip" title="{i18n>BusinessTripTitle}">
-        <content>
-            <Text id="_text_" text="{ID}" />
-        </content>
-    </Page>
+<mvc:View xmlns:m="sap.m"
+    xmlns:forms="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.uxap"
+    xmlns:semantic="sap.f.semantic"
+    xmlns:html="http://www.w3.org/1999/xhtml" controllerName="at.clouddna.tripmanager.ext.controller.BusinessTrip">
+
+    <ObjectPageLayout id="BusinessTrip" showTitleInHeaderContent="true" upperCaseAnchorBar="false">
+        <headerTitle>
+            <ObjectPageDynamicHeaderTitle>
+                <expandedHeading>
+                    <m:HBox>
+                        <m:VBox>
+                            <m:Title text="{ID}" wrapping="true" />
+                            <m:Label text="{destination}" />
+                            <m:Label text="{startDate} - {endDate}" />
+                        </m:VBox>
+                    </m:HBox>
+                </expandedHeading>
+
+                <snappedHeading>
+                    <m:HBox>
+                        <m:VBox>
+                            <m:Title text="{ID}" wrapping="true" />
+                            <m:Label text="{destination}" />
+                            <m:Label text="{startDate} - {endDate}" />
+                        </m:VBox>
+                    </m:HBox>
+                </snappedHeading>
+
+                <actions>
+                    <m:Button text="Edit" type="Emphasized" />
+
+                    <m:Button text="Delete" />
+
+                    <m:Button text="Copy" />
+                </actions>
+            </ObjectPageDynamicHeaderTitle>
+        </headerTitle>
+
+        <headerContent>
+            <m:FlexBox wrap="Wrap" fitContainer="true">
+                <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+                    <m:Title class="sapUiTinyMarginBottom" text="General Info" />
+
+                    <m:HBox>
+                        <m:VBox class="sapUiMediumMarginEnd">
+                            <m:HBox class="sapUiTinyMarginBottom" renderType="Bare">
+                                <m:Label text="Hotel:" class="sapUiTinyMarginEnd" />
+
+                                <m:ObjectStatus text="{hotel}" state="Success" />
+                            </m:HBox>
+
+                            <m:HBox class="sapUiTinyMarginBottom" renderType="Bare">
+                                <m:Label text="Booking-Code Hotel:" class="sapUiTinyMarginEnd" />
+
+                                <m:Link text="{= ${hotelBookingCode/code} ? ${hotelBookingCode/code} : 'No Booking Code provided'}" press="onHotelBookingCodePressed" />
+                            </m:HBox>
+
+                            <m:HBox class="sapUiTinyMarginBottom" renderType="Bare">
+                                <m:Label text="Transport:" class="sapUiTinyMarginEnd" />
+
+                                <m:Text text="{transportType/type}" />
+                            </m:HBox>
+                        </m:VBox>
+
+                        <m:VBox>
+                            <!--Only displayed when Transport by Plane-->
+
+                            <m:HBox class="sapUiTinyMarginBottom" renderType="Bare">
+                                <m:Label text="Airline:" class="sapUiTinyMarginEnd" />
+
+                                <m:Text text="{flightInformation/airline/name} - {flightInformation/airline/code}" />
+                            </m:HBox>
+
+                            <m:HBox class="sapUiTinyMarginBottom" renderType="Bare">
+                                <m:Label text="Booking-Code Flight:" class="sapUiTinyMarginEnd" />
+
+                                <m:Link text="{flightInformation/flightBookingCode/code}" press="onFlightBookingCodePressed" />
+                            </m:HBox>
+
+                            <m:HBox class="sapUiTinyMarginBottom" renderType="Bare">
+                                <m:Label text="Flight Number:" class="sapUiTinyMarginEnd" />
+
+                                <m:Link text="{flightInformation/airline/code}{flightInformation/flightRoute/flightNumber}" press="onFlightNumberPressed" />
+                            </m:HBox>
+                        </m:VBox>
+                    </m:HBox>
+                </m:VBox>
+
+                <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+                    <m:Title text="Additional Info" class="sapUiTinyMarginBottom" />
+
+                    <m:Text width="320px" text="{additionalInformation}" />
+                </m:VBox>
+
+                <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+                    <m:Title class="sapUiTinyMarginBottom" text="Status" />
+
+                    <m:ObjectStatus text="{status/name}" state="Success" class="sapMObjectStatusLarge" />
+                </m:VBox>
+
+                <m:VBox class="sapUiLargeMarginEnd sapUiSmallMarginBottom">
+                    <m:Title text="Duration" class="sapUiTinyMarginBottom" />
+
+                    <m:ObjectStatus text="{ parts:[{path: 'startDate'}, {path:'endDate'}], formatter: '.calculateDurationInDays'}" class="sapMObjectStatusLarge" />
+                </m:VBox>
+            </m:FlexBox>
+        </headerContent>
+
+        <sections>
+            <ObjectPageSection titleUppercase="false" id="generalInfoSection" title="General Information">
+                <subSections>
+                    <ObjectPageSubSection id="generalInfoSubSection" titleUppercase="false">
+                        <blocks>
+                            <forms:SimpleForm editable="false" layout="ColumnLayout">
+                                <m:Label text="Transport Type" />
+
+                                <m:Text text="{transportType/type}" />
+
+                                <m:Label text="Start Date" />
+
+                                <m:Text text="{startDate}" />
+
+                                <m:Label text="End Date" />
+
+                                <m:Text text="{endDate}" />
+
+                                <m:Label text="Status" />
+
+                                <m:Text text="{status/name}" />
+
+                                <m:Label text="Hotel" />
+
+                                <m:Text text="{hotel}" />
+
+                                <m:Label text="Booking-Code Hotel" />
+
+                                <m:Link text="{= ${hotelBookingCode/code} ? ${hotelBookingCode/code} : 'No Booking Code provided'}" press="onHotelBookingCodePressed" />
+                            </forms:SimpleForm>
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+
+            <ObjectPageSection titleUppercase="false" id="flightSection" title="Flight Information">
+                <subSections>
+                    <ObjectPageSubSection id="flightSectionSS1" titleUppercase="false">
+                        <blocks>
+                            <forms:SimpleForm editable="false" layout="ColumnLayout">
+
+                                <m:Label text="Destination" />
+                                <m:Text text="{destination}" />
+
+                                <m:Label text="Departure" />
+                                <m:Text text="{path: 'flightInformation/departureDateTime', formatter: '.getFormattedFlightDateTime'}" />
+
+                                <m:Label text="Landing" />
+                                <m:Text text="{path: 'flightInformation/destinationDateTime', formatter: '.getFormattedFlightDateTime'}" />
+
+                                <m:Label text="Return Flight" />
+                                <m:Text text="{path: 'flightInformation/returnFlightDateTime', formatter: '.getFormattedFlightDateTime'}" />
+
+                                <m:Label text="Booking-Code Flight" />
+                                <m:Link text="{flightInformation/flightBookingCode/code}" press="onFlightBookingCodePressed" />
+
+                                <m:Label text="Flight Number" />
+                                <m:Link text="{flightInformation/airline/code}{flightInformation/flightRoute/flightNumber}" press="onFlightNumberPressed" />
+
+                                <m:Label text="Airline" />
+                                <m:Text text="{flightInformation/airline/name} - {flightInformation/airline/code}" />
+
+                                <m:Label text="Departure Airport" />
+                                <m:Text text="{flightInformation/flightRoute/departureAirport/country}/{flightInformation/flightRoute/departureAirport/city} - {flightInformation/flightRoute/departureAirport/name}" />
+
+                                <m:Label text="Destination Airport" />
+                                <m:Text text="{flightInformation/flightRoute/destinationAirport/country}/{flightInformation/flightRoute/destinationAirport/city} - {flightInformation/flightRoute/destinationAirport/name}" />
+
+                                <m:Label text="Return Airport" />
+                                <m:Text text="{flightInformation/returnFlightAirport/country}/{flightInformation/returnFlightAirport/city} - {flightInformation/returnFlightAirport/name}" />
+                            </forms:SimpleForm>
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+
+            <ObjectPageSection titleUppercase="false" id="attachmentsSection" title="Attachments">
+                <subSections>
+                    <ObjectPageSubSection id="attachmentsSectionSubSection" titleUppercase="false">
+                        <blocks />
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+
+
+            <ObjectPageSection titleUppercase="false" id="commentSection" title="Comments">
+                <subSections>
+                    <ObjectPageSubSection id="commentSS1" titleUppercase="false">
+                        <blocks>
+                            <m:Panel backgroundDesign="Transparent">
+                                <m:content>
+                                    <m:FeedInput post=".onPostComment" />
+
+                                    <m:List id="idCommentsList" noDataText="{i18n>ObjectCommentNoData}" showSeparators="Inner" items="{
+                                            path: 'comments',
+                                            sorter: {
+                                                path: 'createdAt',
+                                                descending: true
+                                            }
+                                        }">
+
+                                        <m:FeedListItem info="{ID}" text="{text}" timestamp="{createdAt}" />
+                                    </m:List>
+                                </m:content>
+                            </m:Panel>
+
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+        </sections>
+    </ObjectPageLayout>
 </mvc:View>

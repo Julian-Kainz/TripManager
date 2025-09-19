@@ -1,7 +1,7 @@
 ID,locale,type
-1,de,Flugzeug
-2,de,Zug
-3,de,Auto
-1,en,Plane
-2,en,Train
-3,en,Car
+71e0993b-3e49-40a0-abb5-3c05a204b089,de,Flugzeug
+a29ad966-1cc7-497f-8e3b-c4f42e05355b,de,Zug
+d8f6f83b-d0f0-43f2-89b6-0865b71578ab,de,Auto
+71e0993b-3e49-40a0-abb5-3c05a204b089,en,Plane
+a29ad966-1cc7-497f-8e3b-c4f42e05355b,en,Train
+d8f6f83b-d0f0-43f2-89b6-0865b71578ab,en,Car

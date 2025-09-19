@@ -1,4 +1,4 @@
 ID,type,createdAt,createdBy,modifiedAt,modifiedBy
-1,Plane,2025-01-01T00:00:00Z,system,,,
-2,Train,2025-01-01T00:00:00Z,system,,,
-3,Car,2025-01-01T00:00:00Z,system,,,
+71e0993b-3e49-40a0-abb5-3c05a204b089,Plane,2025-01-01T00:00:00Z,system,,,
+a29ad966-1cc7-497f-8e3b-c4f42e05355b,Train,2025-01-01T00:00:00Z,system,,,
+d8f6f83b-d0f0-43f2-89b6-0865b71578ab,Car,2025-01-01T00:00:00Z,system,,,
