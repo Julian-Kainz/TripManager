@@ -1,0 +1,7 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:macros="sap.fe.macros" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="at.clouddna.tripmanager.ext.view.BusinessTrip">
+    <Page id="BusinessTrip" title="{i18n>BusinessTripTitle}">
+        <content>
+            <Text id="_text_" text="{ID}" />
+        </content>
+    </Page>
+</mvc:View>

@@ -1,7 +1,7 @@
 {
-  "name": "trip-manager",
+  "name": "tripmanager",
   "version": "0.0.1",
-  "description": "Trip manager for business trips",
+  "description": "An SAP Fiori application.",
   "keywords": [
     "ui5",
     "openui5",

@@ -3,7 +3,7 @@ sap.ui.define(
     function (Component) {
         "use strict";
 
-        return Component.extend("trip.tripmanager.Component", {
+        return Component.extend("at.clouddna.tripmanager.Component", {
             metadata: {
                 manifest: "json"
             }

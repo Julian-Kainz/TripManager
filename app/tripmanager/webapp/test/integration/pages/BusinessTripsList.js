@@ -8,7 +8,7 @@ sap.ui.define(['sap/fe/test/ListReport'], function(ListReport) {
 
     return new ListReport(
         {
-            appId: 'trip.tripmanager',
+            appId: 'at.clouddna.tripmanager',
             componentId: 'BusinessTripsList',
             contextPath: '/BusinessTrips'
         },

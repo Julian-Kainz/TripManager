@@ -1,7 +1,7 @@
 ID,name,createdAt,createdBy,modifiedAt,modifiedBy
-1,New,2025-01-01T00:00:00Z,system,,,
-2,Ready,2025-01-01T00:00:00Z,system,,,
-3,In Progress,2025-01-01T00:00:00Z,system,,,
-4,Booked,2025-01-01T00:00:00Z,system,,,
-5,Finished,2025-01-01T00:00:00Z,system,,,
-6,Cancelled,2025-01-01T00:00:00Z,system,,,
+c6cbbe18-4aef-4788-b220-b62f8e4ac4f1,New,2025-01-01T00:00:00Z,system,,,
+e5b2ac07-99c3-4c60-a213-6bc486a62a2a,Ready,2025-01-01T00:00:00Z,system,,,
+6437abcb-b41f-4f0a-850f-9aecd1de71c2,In Progress,2025-01-01T00:00:00Z,system,,,
+8b22aca0-e7ab-4263-9d74-3d766fc1cb86,Booked,2025-01-01T00:00:00Z,system,,,
+25815598-5513-47b4-93b0-252e463adb4f,Finished,2025-01-01T00:00:00Z,system,,,
+f6d0b4b5-58c4-4239-bacd-df489244c774,Cancelled,2025-01-01T00:00:00Z,system,,,

@@ -1,7 +1,7 @@
 {
   "_version": "1.65.0",
   "sap.app": {
-    "id": "trip.tripmanager",
+    "id": "at.clouddna.tripmanager",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -13,7 +13,7 @@
     "sourceTemplate": {
       "id": "@sap/generator-fiori:lrop",
       "version": "1.17.4",
-      "toolsId": "a90f526e-6bf0-4ef6-bd11-ffeb0e8010b6"
+      "toolsId": "caf1dda4-8e82-44d0-8546-a2925206123b"
     },
     "dataSources": {
       "mainService": {
@@ -61,7 +61,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "trip.tripmanager.i18n.i18n"
+          "bundleName": "at.clouddna.tripmanager.i18n.i18n"
         }
       },
       "": {
@@ -90,9 +90,9 @@
           "target": "BusinessTripsList"
         },
         {
-          "name": "BusinessTripObjectPage",
+          "name": "BusinessTripsBusinessTripPage",
           "pattern": "BusinessTrips({BusinessTripsKey}):?query:",
-          "target": "BusinessTripObjectPage"
+          "target": "BusinessTripsBusinessTripPage"
         }
       ],
       "targets": {
@@ -107,7 +107,7 @@
               "navigation": {
                 "BusinessTrips": {
                   "detail": {
-                    "route": "BusinessTripObjectPage"
+                    "route": "BusinessTripsBusinessTripPage"
                   }
                 }
               },
@@ -117,20 +117,19 @@
                     "type": "ResponsiveTable"
                   }
                 }
-              },
-              "hideFilterBar": false
+              }
             }
           }
         },
-        "BusinessTripObjectPage": {
+        "BusinessTripsBusinessTripPage": {
           "type": "Component",
-          "id": "BusinessTripObjectPage",
+          "id": "BusinessTripsBusinessTripPage",
           "name": "sap.fe.core.fpm",
           "options": {
             "settings": {
               "navigation": {},
               "contextPath": "/BusinessTrips",
-              "viewName": "trip.tripmanager.ext.view.ObjectPage"
+              "viewName": "at.clouddna.tripmanager.ext.view.BusinessTrip"
             }
           }
         }

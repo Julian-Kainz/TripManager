@@ -1,13 +1,13 @@
 ID,locale,name
-1,de,Neu
-2,de,Bereit
-3,de,In Bearbeitung
-4,de,Gebucht
-5,de,Abgeschlossen
-6,de,Storniert
-1,en,New
-2,en,Ready
-3,en,In Progress
-4,en,Booked
-5,en,Finished
-6,en,Cancelled
+c6cbbe18-4aef-4788-b220-b62f8e4ac4f1,de,Neu
+e5b2ac07-99c3-4c60-a213-6bc486a62a2a,de,Bereit
+6437abcb-b41f-4f0a-850f-9aecd1de71c2,de,In Bearbeitung
+8b22aca0-e7ab-4263-9d74-3d766fc1cb86,de,Gebucht
+25815598-5513-47b4-93b0-252e463adb4f,de,Abgeschlossen
+f6d0b4b5-58c4-4239-bacd-df489244c774,de,Storniert
+c6cbbe18-4aef-4788-b220-b62f8e4ac4f1,en,New
+e5b2ac07-99c3-4c60-a213-6bc486a62a2a,en,Ready
+6437abcb-b41f-4f0a-850f-9aecd1de71c2,en,In Progress
+8b22aca0-e7ab-4263-9d74-3d766fc1cb86,en,Booked
+25815598-5513-47b4-93b0-252e463adb4f,en,Finished
+f6d0b4b5-58c4-4239-bacd-df489244c774,en,Cancelled

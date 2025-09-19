@@ -1,1 +1,2 @@
-using from './trip-manager/annotations';
+
+using from './tripmanager/annotations';

@@ -21,7 +21,8 @@
   "scripts": {
     "start": "cds-serve",
     "test": "npx jest tests/test.js",
-    "watch-trip-manager": "cds watch --open trip-manager/webapp/index.html?sap-ui-xx-viewCache=false"
+    "watch-trip-manager": "cds watch --open trip-manager/webapp/index.html?sap-ui-xx-viewCache=false",
+    "watch-tripmanager": "cds watch --open tripmanager/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "requires": {
@@ -51,6 +52,7 @@
     }
   },
   "sapux": [
-    "app/trip-manager"
+    "app/trip-manager",
+    "app/tripmanager"
   ]
 }

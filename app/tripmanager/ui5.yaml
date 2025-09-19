@@ -2,7 +2,7 @@
 
 specVersion: "3.1"
 metadata:
-  name: trip.tripmanager
+  name: at.clouddna.tripmanager
 type: application
 server:
   customMiddleware:

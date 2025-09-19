@@ -8,7 +8,7 @@ sap.ui.define(['sap/fe/test/ObjectPage'], function(ObjectPage) {
 
     return new ObjectPage(
         {
-            appId: 'trip.tripmanager',
+            appId: 'at.clouddna.tripmanager',
             componentId: 'BusinessTripsObjectPage',
             contextPath: '/BusinessTrips'
         },
